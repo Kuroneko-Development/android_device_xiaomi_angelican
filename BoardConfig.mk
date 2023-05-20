@@ -1,10 +1,10 @@
 #
-# Copyright (C) 2021 Teracube Inc.
+# Copyright (C) 2023 Kuroneko Inc.
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/teracube/2e
+DEVICE_PATH := device/xiaomi/angelican
 
 # Architecture
 TARGET_ARCH := arm64
@@ -35,7 +35,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_BOARD_PLATFORM := mt6765
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := 2e,Teracube_2e
+TARGET_OTA_ASSERT_DEVICE := angelican,angelica,dandelion,cattail,angelicain
 
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -60,8 +60,8 @@ BOARD_BOOTIMG_HEADER_VERSION := 2
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/teracube/2e
-TARGET_KERNEL_CONFIG := 2e_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/angelican
+TARGET_KERNEL_CONFIG := akx_stable_defconfig
 TARGET_KERNEL_VERSION := 4.9
 TARGET_KERNEL_CLANG_COMPILE := true
 
@@ -111,15 +111,16 @@ BOARD_ROOT_EXTRA_FOLDERS += metadata
 BOARD_USES_METADATA_PARTITION := true
 
 # Dynamic Partition
-BOARD_SUPER_PARTITION_SIZE := 4294967296
-BOARD_SUPER_PARTITION_GROUPS := teracube_dynamic_partitions
-BOARD_TERACUBE_DYNAMIC_PARTITIONS_SIZE := 4294967296
-BOARD_TERACUBE_DYNAMIC_PARTITIONS_PARTITION_LIST := product vendor system system_ext
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 16384
-BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+# Partitions (Dynamic)
+BOARD_SUPER_PARTITION_SIZE := 4831838208
+BOARD_SUPER_PARTITION_ERROR_LIMIT := 4831838208
+BOARD_SUPER_PARTITION_GROUPS := main
+BOARD_MAIN_SIZE := 3405828096
+BOARD_MAIN_PARTITION_LIST := \
+    product \
+    system \
+    vendor \
+
 
 # File systems
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -142,7 +143,7 @@ BOARD_SEPOLICY_DIRS += \
 MTK_PLATFORM := mt6765
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := vendor/teracube/2e-firmware
+TARGET_RELEASETOOLS_EXTENSIONS := vendor/xiaomi/angelican-firmware
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -153,4 +154,4 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6765
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
 
--include vendor/teracube/2e/BoardConfigVendor.mk
+-include vendor/xiaomi/angelican/BoardConfigVendor.mk

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 Teracube Inc.
+# Copyright (C) 2023 Kuroneko Inc.
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -324,5 +324,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
 
 # Inherit vendor
-$(call inherit-product, vendor/teracube/2e/2e-vendor.mk)
+$(call inherit-product, vendor/xiaomi/angelican/angelican-vendor.mk)
  

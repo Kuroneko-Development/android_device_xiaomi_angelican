@@ -18,8 +18,8 @@
 
 set -e
 
-DEVICE=2e
-VENDOR=teracube
+DEVICE=angelican
+VENDOR=xiaomi
 
 INITIAL_COPYRIGHT_YEAR=2020
 
