@@ -1,20 +1,15 @@
-Device configuration for the Teracube 2e (2e)
+Device configuration for Xiaomi Redmi 9C
 =============================================
-
-![2e](https://github.com/gaganmalvi/graphics/raw/main/teracube-styx.png)
-
-The Teracube 2e is a sustainable smartphone from Teracube.
-It was released in November 2020.
 
 | Basic                   | Spec Sheet                                                                                                                     |
 | -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
 | CPU                     | Octa-core                                                                                                                      |
-| Chipset                 | Mediatek Helio A25                                                                                                             |
+| Chipset                 | Mediatek Helio G35                                                                                                             |
 | GPU                     | PowerVR GE8320                                                                                                                 |
-| Memory                  | 4GB RAM                                                                                                                        |
-| Shipped Android Version | 10.0                                                                                                                           |
-| Storage                 | 64 GB                                                                                                                          |
-| Battery                 | Removable Li-Po 4000 mAh battery                                                                                               |
-| Display                 | 720 x 1560 pixels, 6.1"                                                                                                        |
+| Memory                  | 2/3/4GB RAM                                                                                                                        |
+| Shipped Android Version | 10.0, upgradable to 11.0                                                                                                                           |
+| Storage                 | 32/64/128 GB                                                                                                                          |
+| Battery                 | Removable Li-Po 5071 mAh battery                                                                                               |
+| Display                 | 720 x 1600 pixels, 6.52"                                                                                                        |
 
-###### Copyright (C) 2021 The Styx Project
+###### Copyright (C) 2023 The Kuroneko Development
