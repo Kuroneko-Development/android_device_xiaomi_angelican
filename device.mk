@@ -41,8 +41,6 @@ PRODUCT_COPY_FILES += \
 # MediaTek Common
 TARGET_PROVIDES_MEDIATEK_IMS_STACK := true
 TARGET_PROVIDES_MTK_PROPRIETARY := true
-$(call inherit-product, device/mediatek/common/device.mk)
-$(call inherit-product, vendor/mediatek/ims/mtk-ims.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -80,11 +78,8 @@ PRODUCT_COPY_FILES += \
 # libmedia_helper for old audio blobs
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-core/libmedia_helper.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmedia_helper-v29.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libmedia_helper.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmedia_helper-v29.so \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-core/libgatekeeper.so:$(TARGET_COPY_OUT_VENDOR)/lib/libgatekeeper-v29.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libgatekeeper.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgatekeeper-v29.so \
     prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcompiler_rt.so:$(TARGET_COPY_OUT_VENDOR)/lib/libcompiler_rt.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcompiler_rt.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libcompiler_rt.so
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -301,13 +296,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     ImsServiceBase \
-    mediatek-common \
-    mediatek-framework \
-    mediatek-ims-base \
-    mediatek-ims-common \
-    mediatek-telecom-common \
-    mediatek-telephony-base \
-    mediatek-telephony-common
 
 # Shims
 PRODUCT_PACKAGES += libshim_vtservice
