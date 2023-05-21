@@ -7,23 +7,27 @@
 DEVICE_PATH := device/xiaomi/angelican
 
 # Architecture
-TARGET_ARCH := arm64
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_CPU_ABI_LIST := armeabi-v7a,armeabi
+TARGET_CPU_ABI_LIST_32_BIT := armeabi-v7a,armeabi
+TARGET_BOARD_SUFFIX := _32
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53
+# Binder
+TARGET_USES_64_BIT_BINDER := true
 
 # Build broken duplicate rules.
 BUILD_BROKEN_DUP_RULES := true
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := yk673v6_lwg62_64
+TARGET_BOOTLOADER_BOARD_NAME := k65v1_64_bsp
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-11-05
@@ -35,7 +39,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_BOARD_PLATFORM := mt6765
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := angelican,angelica,dandelion,cattail,angelicain
+TARGET_OTA_ASSERT_DEVICE := angelican,angelican,dandelion,cattail,angelicanin
 
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -63,6 +67,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/angelican
 TARGET_KERNEL_CONFIG := akx_stable_defconfig
 TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_CLANG_VERSION := r353983c
 TARGET_KERNEL_CLANG_COMPILE := true
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
@@ -137,11 +142,11 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 BOARD_VNDK_VERSION := current
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/properties/system.prop
 
-# Sepolicy
-include device/mediatek/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += \
-        $(DEVICE_PATH)/sepolicy/basic \
-        $(DEVICE_PATH)/sepolicy/bsp
+# SELinux
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+TARGET_USES_PREBUILT_VENDOR_SEPOLICY := true
+TARGET_HAS_FUSEBLK_SEPOLICY_ON_VENDOR := true
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # MediaTek includes
 MTK_PLATFORM := mt6765
